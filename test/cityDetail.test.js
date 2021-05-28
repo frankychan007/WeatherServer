@@ -3,7 +3,7 @@ import { expect, server } from './setup';
 describe('City Detail test', () => {
   it('gets city url', (done) => {
     server
-      .get(`/city`)
+      .get(`/cityDetail`)
       .set({ lat: '40.7143', lon: '-74.006' })
       .end((err, res) => {
         expect(res.status).to.equal(200);
@@ -36,7 +36,7 @@ describe('City Detail test', () => {
 
 describe('City Detail test', () => {
   it('gets city url withou lat and lon', (done) => {
-    server.get(`/city`).end((err, res) => {
+    server.get(`/cityDetail`).end((err, res) => {
       expect(res.status).to.equal(400);
       expect(res.body.message).to.equal('Missing lat and lon');
       done();
@@ -47,7 +47,7 @@ describe('City Detail test', () => {
 describe('City Detail test', () => {
   it('gets city url withou lat', (done) => {
     server
-      .get(`/city`)
+      .get(`/cityDetail`)
       .set({ lon: '-74.006' })
       .end((err, res) => {
         expect(res.status).to.equal(400);
@@ -60,7 +60,7 @@ describe('City Detail test', () => {
 describe('City Detail test', () => {
   it('gets city url withou lon', (done) => {
     server
-      .get(`/city`)
+      .get(`/cityDetail`)
       .set({ lat: '40.7143' })
       .end((err, res) => {
         expect(res.status).to.equal(400);
@@ -73,7 +73,7 @@ describe('City Detail test', () => {
 describe('City Detail test', () => {
   it('gets city url with invalid lat and long', (done) => {
     server
-      .get(`/city`)
+      .get(`/cityDetail`)
       .set({ lon: '100', lat: '100' })
       .end((err, res) => {
         expect(res.status).to.equal(400);

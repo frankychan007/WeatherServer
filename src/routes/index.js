@@ -7,13 +7,13 @@ import { getWeather } from '../api/cityDetail';
 const router = Express.Router();
 router.use(rateLimiterUsingThirdParty);
 
-router.get('/city', async (req, res, next) => {
+router.get('/cityDetail', async (req, res, next) => {
   const response = await getWeather(req);
   res.status(response.statusCode);
   res.send(response.body);
 });
 
-router.get('/cities', async (req, res, next) => {
+router.get('/cityList', async (req, res, next) => {
   res.status(200);
   res.send({
     data: mockData.cities,

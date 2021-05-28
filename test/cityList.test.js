@@ -2,7 +2,7 @@ import { expect, server } from './setup';
 
 describe('City List test', () => {
   it('gets cities url', (done) => {
-    server.get(`/cities`).end((err, res) => {
+    server.get(`/cityList`).end((err, res) => {
       expect(res.status).to.equal(200);
       expect(res.body.data).to.eql([
         {
