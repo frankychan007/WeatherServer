@@ -1,9 +1,11 @@
 import Express from 'express';
+import { rateLimiterUsingThirdParty } from '../middlewares/rateLimiter';
+
+import mockData from '../static/mockData';
+import { getWeather } from '../api/cityDetail';
 
 const router = Express.Router();
-import mockData from '../static/mockData';
-
-import { getWeather } from '../api/cityDetail';
+router.use(rateLimiterUsingThirdParty);
 
 router.get('/city', async (req, res, next) => {
   const response = await getWeather(req);
