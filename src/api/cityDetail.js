@@ -32,7 +32,7 @@ export const getWeather = async (req) => {
   try {
     const lat = parseInt(req.headers.lat);
     const lon = parseInt(req.headers.lon);
-    if (lat > 90 || lon > 90 || lat < -90 || lon < -90) {
+    if (lat > 90 || lon > 180 || lat < -90 || lon < -180) {
       return {
         statusCode: 400,
         body: {

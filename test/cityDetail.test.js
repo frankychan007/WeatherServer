@@ -74,7 +74,7 @@ describe('City Detail test', () => {
   it('gets city url with invalid lat and long', (done) => {
     server
       .get(`/cityDetail`)
-      .set({ lon: '100', lat: '100' })
+      .set({ lon: '200', lat: '100' })
       .end((err, res) => {
         expect(res.status).to.equal(400);
         expect(res.body.message).to.equal('Invalid lat or lon');
