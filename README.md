@@ -26,7 +26,7 @@ or use npm:
 
 Run the following command in the root directory:
 
-    $ yarn dev
+    $ yarn start
 
 ### Run Testcases for the Server:
 
